@@ -1,13 +1,23 @@
-﻿namespace DatabaseTask.Core.Domain
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DatabaseTask.Core.Domain
 {
     public class Child
     {
-        public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        [Key]
+        public int Child_ID { get; set; }
 
-        // Foreign key to Employee (Parent)
-        public Guid EmployeeId { get; set; }
-        public Employee Employee { get; set; }
+        public int? Employee_ID { get; set; }
+        [ForeignKey(nameof(Employee_ID))]
+        public Employee? Employee { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string First_name { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(50)]
+        public string Last_name { get; set; } = string.Empty;
     }
 }

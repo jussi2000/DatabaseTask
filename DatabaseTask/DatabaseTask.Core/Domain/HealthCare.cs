@@ -1,13 +1,20 @@
-﻿namespace DatabaseTask.Core.Domain
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DatabaseTask.Core.Domain
 {
     public class HealthCare
     {
-        public Guid Id { get; set; }
-        public string AbsenceReason { get; set; }
-        public DateTime History { get; set; }
+        [Key]
+        public int HealthCare_ID { get; set; }
 
-        // Foreign key to Employee
-        public Guid EmployeeId { get; set; }
-        public Employee Employee { get; set; }
+        public int? Employee_ID { get; set; }
+        [ForeignKey(nameof(Employee_ID))]
+        public Employee? Employee { get; set; }
+
+        [MaxLength(200)]
+        public string Absentee_reason { get; set; } = string.Empty;
+
+        public DateTime History { get; set; }
     }
 }
