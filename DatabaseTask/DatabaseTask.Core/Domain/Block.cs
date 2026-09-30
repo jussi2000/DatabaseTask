@@ -9,6 +9,7 @@ namespace DatabaseTask.Core.Domain
 
         [Required]
         public int PlaceId { get; set; }
+        public int PrisonId { get; set; }
 
         [Required]
         public string BlockNumber { get; set; }

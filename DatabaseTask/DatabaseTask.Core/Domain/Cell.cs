@@ -9,6 +9,7 @@ namespace DatabaseTask.Core.Domain
         [Required]
 
         public int BlockId { get; set; }
+  
         public Block Block { get; set; }
         [Required]
 

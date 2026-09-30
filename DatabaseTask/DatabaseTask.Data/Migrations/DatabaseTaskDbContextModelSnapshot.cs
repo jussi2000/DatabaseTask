@@ -41,6 +41,9 @@ namespace DatabaseTask.Data.Migrations
                     b.Property<int>("PlaceId")
                         .HasColumnType("int");
 
+                    b.Property<int>("PrisonId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SecurityLevel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
