@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatabaseTask.Data.Migrations
 {
     [DbContext(typeof(DatabaseTaskDbContext))]
-    [Migration("20260930122908_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260930125529_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,9 +41,6 @@ namespace DatabaseTask.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PlaceId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PrisonId")
                         .HasColumnType("int");
 
@@ -52,6 +49,8 @@ namespace DatabaseTask.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BlockId");
+
+                    b.HasIndex("PrisonId");
 
                     b.ToTable("Blocks");
                 });
@@ -363,6 +362,17 @@ namespace DatabaseTask.Data.Migrations
                     b.ToTable("Visitors");
                 });
 
+            modelBuilder.Entity("DatabaseTask.Core.Domain.Block", b =>
+                {
+                    b.HasOne("DatabaseTask.Core.Domain.Prison", "Prison")
+                        .WithMany("Blocks")
+                        .HasForeignKey("PrisonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Prison");
+                });
+
             modelBuilder.Entity("DatabaseTask.Core.Domain.Cell", b =>
                 {
                     b.HasOne("DatabaseTask.Core.Domain.Block", "Block")
@@ -478,6 +488,11 @@ namespace DatabaseTask.Data.Migrations
                     b.Navigation("InmateCrimes");
 
                     b.Navigation("Sentences");
+                });
+
+            modelBuilder.Entity("DatabaseTask.Core.Domain.Prison", b =>
+                {
+                    b.Navigation("Blocks");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Shift", b =>

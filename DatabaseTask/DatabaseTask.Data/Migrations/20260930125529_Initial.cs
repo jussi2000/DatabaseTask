@@ -6,28 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DatabaseTask.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Blocks",
-                columns: table => new
-                {
-                    BlockId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PlaceId = table.Column<int>(type: "int", nullable: false),
-                    PrisonId = table.Column<int>(type: "int", nullable: false),
-                    BlockNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SecurityLevel = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Blocks", x => x.BlockId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Crimes",
                 columns: table => new
@@ -106,24 +89,24 @@ namespace DatabaseTask.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cells",
+                name: "Blocks",
                 columns: table => new
                 {
-                    CellId = table.Column<int>(type: "int", nullable: false)
+                    BlockId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BlockId = table.Column<int>(type: "int", nullable: false),
-                    CellNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Floor = table.Column<int>(type: "int", nullable: false),
-                    MaxCapacity = table.Column<int>(type: "int", nullable: false)
+                    PrisonId = table.Column<int>(type: "int", nullable: false),
+                    BlockNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SecurityLevel = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cells", x => x.CellId);
+                    table.PrimaryKey("PK_Blocks", x => x.BlockId);
                     table.ForeignKey(
-                        name: "FK_Cells_Blocks_BlockId",
-                        column: x => x.BlockId,
-                        principalTable: "Blocks",
-                        principalColumn: "BlockId",
+                        name: "FK_Blocks_Prisons_PrisonId",
+                        column: x => x.PrisonId,
+                        principalTable: "Prisons",
+                        principalColumn: "PrisonId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -150,6 +133,28 @@ namespace DatabaseTask.Data.Migrations
                         column: x => x.ShiftId,
                         principalTable: "Shifts",
                         principalColumn: "ShiftId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cells",
+                columns: table => new
+                {
+                    CellId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BlockId = table.Column<int>(type: "int", nullable: false),
+                    CellNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Floor = table.Column<int>(type: "int", nullable: false),
+                    MaxCapacity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cells", x => x.CellId);
+                    table.ForeignKey(
+                        name: "FK_Cells_Blocks_BlockId",
+                        column: x => x.BlockId,
+                        principalTable: "Blocks",
+                        principalColumn: "BlockId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -257,6 +262,11 @@ namespace DatabaseTask.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Blocks_PrisonId",
+                table: "Blocks",
+                column: "PrisonId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cells_BlockId",
                 table: "Cells",
                 column: "BlockId");
@@ -312,9 +322,6 @@ namespace DatabaseTask.Data.Migrations
                 name: "InmateCrimes");
 
             migrationBuilder.DropTable(
-                name: "Prisons");
-
-            migrationBuilder.DropTable(
                 name: "Sentences");
 
             migrationBuilder.DropTable(
@@ -340,6 +347,9 @@ namespace DatabaseTask.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Blocks");
+
+            migrationBuilder.DropTable(
+                name: "Prisons");
         }
     }
 }

@@ -8,7 +8,6 @@ namespace DatabaseTask.Core.Domain
         public int BlockId { get; set; }
 
         [Required]
-        public int PlaceId { get; set; }
         public int PrisonId { get; set; }
         public Prison Prison { get; set; }
 
