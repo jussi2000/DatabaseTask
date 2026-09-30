@@ -4,6 +4,7 @@ using DatabaseTask.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatabaseTask.Data.Migrations
 {
     [DbContext(typeof(DatabaseTaskDbContext))]
-    partial class DatabaseTaskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260930122908_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +53,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("BlockId");
 
-                    b.ToTable("Blocks", (string)null);
+                    b.ToTable("Blocks");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Cell", b =>
@@ -78,7 +81,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasIndex("BlockId");
 
-                    b.ToTable("Cells", (string)null);
+                    b.ToTable("Cells");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Crime", b =>
@@ -103,7 +106,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("CrimeId");
 
-                    b.ToTable("Crimes", (string)null);
+                    b.ToTable("Crimes");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Guard", b =>
@@ -132,7 +135,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("GuardId");
 
-                    b.ToTable("Guards", (string)null);
+                    b.ToTable("Guards");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.GuardShift", b =>
@@ -155,7 +158,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasIndex("ShiftId");
 
-                    b.ToTable("GuardShifts", (string)null);
+                    b.ToTable("GuardShifts");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Inmate", b =>
@@ -195,7 +198,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasIndex("CellId");
 
-                    b.ToTable("Inmates", (string)null);
+                    b.ToTable("Inmates");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.InmateCrime", b =>
@@ -218,7 +221,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasIndex("InmateId");
 
-                    b.ToTable("InmateCrimes", (string)null);
+                    b.ToTable("InmateCrimes");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Prison", b =>
@@ -242,7 +245,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("PrisonId");
 
-                    b.ToTable("Prisons", (string)null);
+                    b.ToTable("Prisons");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Sentence", b =>
@@ -270,7 +273,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasIndex("InmateId");
 
-                    b.ToTable("Sentences", (string)null);
+                    b.ToTable("Sentences");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Shift", b =>
@@ -292,7 +295,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("ShiftId");
 
-                    b.ToTable("Shifts", (string)null);
+                    b.ToTable("Shifts");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Visit", b =>
@@ -328,7 +331,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasIndex("VisitorId");
 
-                    b.ToTable("Visits", (string)null);
+                    b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Visitor", b =>
@@ -357,7 +360,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("VisitorId");
 
-                    b.ToTable("Visitors", (string)null);
+                    b.ToTable("Visitors");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Cell", b =>

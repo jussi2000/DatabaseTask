@@ -12,5 +12,6 @@ namespace DatabaseTask.Core.Domain
         [Required]
         public string Location { get; set; }
         public int MaxCapacity { get; set; }
+        public ICollection<Block> Blocks { get; set; } = new List<Block>();
     }
 }
