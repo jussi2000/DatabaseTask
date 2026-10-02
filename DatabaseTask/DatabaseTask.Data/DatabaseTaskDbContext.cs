@@ -1,6 +1,5 @@
-﻿using DatabaseTask.Core.Domain;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.EntityFrameworkCore;
+using DatabaseTask.Core.Domain;
 
 namespace DatabaseTask.Data
 {
@@ -9,20 +8,15 @@ namespace DatabaseTask.Data
         public DatabaseTaskDbContext(DbContextOptions<DatabaseTaskDbContext> options)
             : base(options) { }
 
-        // näide, kuidas teha, kui lisate domaini alla ühe objekti
-        // migratsioonid peavad tulema siia libary-sse e TARge20.Data alla.
-
-        public DbSet<Block> Blocks { get; set; }
-        public DbSet<Prison> Prisons { get; set; }
-        public DbSet<Cell> Cells { get; set; }
-        public DbSet<Inmate> Inmates { get; set; }
-        public DbSet<InmateCrime> InmateCrimes { get; set; }
-        public DbSet<Crime> Crimes { get; set; }
-        public DbSet<Sentence> Sentences { get; set; }
-        public DbSet<Visit> Visits { get; set; }
-        public DbSet<Visitor> Visitors { get; set; }
-        public DbSet<Guard> Guards { get; set; }
-        public DbSet<GuardShift> GuardShifts { get; set; }
-        public DbSet<Shift> Shifts { get; set; }
+        public DbSet<Bookable> Bookables { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Guests> Guests { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Payroll> Payrolls { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<ServiceOrder> ServiceOrders { get; set; }
+        public DbSet<Service> Services { get; set; }
     }
 }
