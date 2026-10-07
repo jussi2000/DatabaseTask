@@ -3,7 +3,7 @@
 
 namespace DatabaseTask.Core.Domain
 {
-    public class Guests
+    public class Guest
     {
         [Key]
         public Guid Id { get; set; }
@@ -14,7 +14,7 @@ namespace DatabaseTask.Core.Domain
         public string PersonalId { get; set; }
         public string Citizenship { get; set; }
 
-        public ICollection<Booking> ServiceOrders { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
              = new List<Booking>();
     }
 }

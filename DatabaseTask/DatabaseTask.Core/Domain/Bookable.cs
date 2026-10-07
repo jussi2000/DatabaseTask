@@ -8,5 +8,7 @@ namespace DatabaseTask.Core.Domain
         public Guid Id { get; set; }
         public string ExtraInfo { get; set; }
         public string Status { get; set; }
+
+
     }
 }

@@ -10,8 +10,8 @@ namespace DatabaseTask.Core.Domain
         public float PaymentAmmount { get; set; }
         public string PaymentMethod { get; set; }
 
-        public Guid BookingId { get; set; }
-        public Booking Booking { get; set; }
+        public ICollection<Guest> Guests { get; set; }
+             = new List<Guest>();
 
     }
 }
