@@ -9,16 +9,18 @@ namespace DatabaseTask.Core.Domain
         public Guid Id { get; set; }
         public DateTime ArrivalDate { get; set; }
         public DateTime DepartureDate { get; set; }
-        public int PeopleCount { get; set; }
+        public int PeopleAmount { get; set; }
+        public Guid EmployeeId { get; set; }
         public string PaymentMethod { get; set; }
         public int RoomAmmount { get; set; }
         public float Cost { get; set; }
 
-        public ICollection<Payment> Payments { get; set; }
-            = new List<Payment>();
-        public ICollection<ServiceOrder> ServiceOrders { get; set; }
-            = new List<ServiceOrder>();
-        public ICollection<Bookable> Bookable { get; set; }
-                = new List<Bookable>();
+        public Guid GuestId { get; set; }
+
+        public ICollection<Employee> Employees { get; set; }
+            = new List<Employee>();
+
+        public ICollection<Guest> Guests { get; set; }
+          = new List<Guest>();
     }
 }

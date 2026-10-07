@@ -10,14 +10,15 @@ namespace DatabaseTask.Core.Domain
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Position { get; set; }
-        public string Telephone { get; set; }
+        public string Tel { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string PersonalId { get; set; }
+        public Guid HotelId { get; set; }
 
-        public ICollection<Payroll> ServiceOrders { get; set; }
-            = new List<Payroll>();
+        public ICollection<Hotel> Hotels { get; set; }
+            = new List<Hotel>();
     }
 }

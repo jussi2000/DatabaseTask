@@ -14,7 +14,5 @@ namespace DatabaseTask.Core.Domain
         public int Floor { get; set; }
         public bool AirCon { get; set; }
 
-        public ICollection<Bookable> Bookable { get; set; }
-            = new List<Bookable>();
     }
 }

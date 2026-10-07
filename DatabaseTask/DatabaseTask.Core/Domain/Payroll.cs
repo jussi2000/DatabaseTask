@@ -9,5 +9,7 @@ namespace DatabaseTask.Core.Domain
         public float Sum { get; set; }
         public DateTime Date { get; set; }
 
+        public ICollection<Employee> Employees { get; set; }
+             = new List<Employee>();
     }
 }
