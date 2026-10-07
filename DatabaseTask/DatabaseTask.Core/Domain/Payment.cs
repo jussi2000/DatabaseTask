@@ -7,10 +7,11 @@ namespace DatabaseTask.Core.Domain
         [Key]
         public Guid Id { get; set; }
         public float PaymentDate { get; set; }
-        public float PaymentAmount { get; set; }
+        public float PaymentAmmount { get; set; }
         public string PaymentMethod { get; set; }
 
         public Guid BookingId { get; set; }
         public Booking Booking { get; set; }
+
     }
 }

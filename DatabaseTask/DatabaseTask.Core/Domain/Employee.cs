@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+
 namespace DatabaseTask.Core.Domain
 {
     public class Employee
@@ -16,6 +17,7 @@ namespace DatabaseTask.Core.Domain
         public DateTime EndDate { get; set; }
         public string PersonalId { get; set; }
 
-
+        public ICollection<Payroll> ServiceOrders { get; set; }
+            = new List<Payroll>();
     }
 }

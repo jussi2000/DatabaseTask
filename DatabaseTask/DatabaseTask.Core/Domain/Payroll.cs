@@ -6,7 +6,7 @@ namespace DatabaseTask.Core.Domain
     {
         [Key]
         public Guid Id { get; set; }
-        public float Amount { get; set; }
+        public float Sum { get; set; }
         public DateTime Date { get; set; }
 
         public Employee Employee { get; set; }
