@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DatabaseTask.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initAirport2 : Migration
+    public partial class initAirport3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

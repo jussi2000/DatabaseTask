@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatabaseTask.Data.Migrations
 {
     [DbContext(typeof(DatabaseTaskDbContext))]
-    [Migration("20261009112952_initAirport2")]
-    partial class initAirport2
+    [Migration("20261009113345_initAirport3")]
+    partial class initAirport3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
