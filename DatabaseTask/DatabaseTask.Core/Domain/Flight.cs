@@ -21,6 +21,6 @@ namespace DatabaseTask.Core.Domain
              = new List<Aircraft>();
         public ICollection<Passanger> Passangers { get; set; }
            = new List<Passanger>();
-        public FlightStatus? FlightStatus { get; set; }
+        public FlightStatus FlightStatus { get; set; }
     }
 }
