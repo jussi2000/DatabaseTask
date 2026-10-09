@@ -1,7 +1,6 @@
 ﻿using DatabaseTask.Core.Domain;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace DatabaseTask.Data
 {
     public class DatabaseTaskDbContext : DbContext
@@ -9,20 +8,17 @@ namespace DatabaseTask.Data
         public DatabaseTaskDbContext(DbContextOptions<DatabaseTaskDbContext> options)
             : base(options) { }
 
-        // näide, kuidas teha, kui lisate domaini alla ühe objekti
-        // migratsioonid peavad tulema siia libary-sse e TARge20.Data alla.
+        public DbSet<Aircraft> Aircrafts { get; set; }
+        public DbSet<Airline> Airlines { get; set; }
+        public DbSet<Airport> Airports { get; set; }
+        public DbSet<Baggage> Baggages { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Flight> Flights { get; set; }
+        public DbSet<FlightStatus> FlightStatuses { get; set; }
+        public DbSet<Gate> Gates { get; set; }
+        public DbSet<Passanger> Passangers { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
+        public DbSet<Terminal> Terminals { get; set; }
 
-        public DbSet<Block> Blocks { get; set; }
-        public DbSet<Prison> Prisons { get; set; }
-        public DbSet<Cell> Cells { get; set; }
-        public DbSet<Inmate> Inmates { get; set; }
-        public DbSet<InmateCrime> InmateCrimes { get; set; }
-        public DbSet<Crime> Crimes { get; set; }
-        public DbSet<Sentence> Sentences { get; set; }
-        public DbSet<Visit> Visits { get; set; }
-        public DbSet<Visitor> Visitors { get; set; }
-        public DbSet<Guard> Guards { get; set; }
-        public DbSet<GuardShift> GuardShifts { get; set; }
-        public DbSet<Shift> Shifts { get; set; }
     }
 }
