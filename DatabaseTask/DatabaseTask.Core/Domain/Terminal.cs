@@ -12,5 +12,7 @@ namespace DatabaseTask.Core.Domain
 
         public ICollection<Employee> Employees { get; set; }
               = new List<Employee>();
+        public ICollection<Airport> Airports { get; set; }
+      = new List<Airport>();
     }
 }

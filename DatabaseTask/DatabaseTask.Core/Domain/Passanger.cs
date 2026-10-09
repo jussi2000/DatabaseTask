@@ -13,8 +13,5 @@ namespace DatabaseTask.Core.Domain
         public string Tel { get; set; }
         public string Email { get; set; }
         public Guid Registration_ID { get; set; }
-
-        public ICollection<Flight> Flights { get; set; }
-             = new List<Flight>();
     }
 }
