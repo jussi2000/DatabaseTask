@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DatabaseTask.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initAirport3 : Migration
+    public partial class initAirport4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -125,15 +125,14 @@ namespace DatabaseTask.Data.Migrations
                     Gate_Nr = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     max_aircraft_size = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     min_aircraft_size = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Flight_ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Flight_ID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Flight_ID = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Gates", x => x.Gate_ID);
                     table.ForeignKey(
-                        name: "FK_Gates_Flights_Flight_ID1",
-                        column: x => x.Flight_ID1,
+                        name: "FK_Gates_Flights_Flight_ID",
+                        column: x => x.Flight_ID,
                         principalTable: "Flights",
                         principalColumn: "Flight_ID");
                 });
@@ -276,9 +275,9 @@ namespace DatabaseTask.Data.Migrations
                 column: "FlightStatus_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Gates_Flight_ID1",
+                name: "IX_Gates_Flight_ID",
                 table: "Gates",
-                column: "Flight_ID1");
+                column: "Flight_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Passangers_Baggage_ID",

@@ -249,10 +249,7 @@ namespace DatabaseTask.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("Flight_ID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("Flight_ID1")
+                    b.Property<Guid?>("Flight_ID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Gate_Nr")
@@ -269,7 +266,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("Gate_ID");
 
-                    b.HasIndex("Flight_ID1");
+                    b.HasIndex("Flight_ID");
 
                     b.ToTable("Gates");
                 });
@@ -419,7 +416,7 @@ namespace DatabaseTask.Data.Migrations
                 {
                     b.HasOne("DatabaseTask.Core.Domain.Flight", null)
                         .WithMany("Gates")
-                        .HasForeignKey("Flight_ID1");
+                        .HasForeignKey("Flight_ID");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Passanger", b =>

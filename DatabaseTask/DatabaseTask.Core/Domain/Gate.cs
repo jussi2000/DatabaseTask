@@ -9,7 +9,6 @@ namespace DatabaseTask.Core.Domain
         public string Gate_Nr { get; set; }
         public string max_aircraft_size { get; set; }
         public string min_aircraft_size { get; set; }
-        public Guid Flight_ID { get; set; }
         public ICollection<Terminal> Terminals { get; set; }
              = new List<Terminal>();
     }

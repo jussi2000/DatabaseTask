@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatabaseTask.Data.Migrations
 {
     [DbContext(typeof(DatabaseTaskDbContext))]
-    [Migration("20261009113345_initAirport3")]
-    partial class initAirport3
+    [Migration("20261009113833_initAirport4")]
+    partial class initAirport4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -252,10 +252,7 @@ namespace DatabaseTask.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("Flight_ID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("Flight_ID1")
+                    b.Property<Guid?>("Flight_ID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Gate_Nr")
@@ -272,7 +269,7 @@ namespace DatabaseTask.Data.Migrations
 
                     b.HasKey("Gate_ID");
 
-                    b.HasIndex("Flight_ID1");
+                    b.HasIndex("Flight_ID");
 
                     b.ToTable("Gates");
                 });
@@ -422,7 +419,7 @@ namespace DatabaseTask.Data.Migrations
                 {
                     b.HasOne("DatabaseTask.Core.Domain.Flight", null)
                         .WithMany("Gates")
-                        .HasForeignKey("Flight_ID1");
+                        .HasForeignKey("Flight_ID");
                 });
 
             modelBuilder.Entity("DatabaseTask.Core.Domain.Passanger", b =>
